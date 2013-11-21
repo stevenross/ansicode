@@ -5,7 +5,7 @@ package ansicode
 
 import "strconv"
 
-// span represents a string of text that can be sylised with ANSI codes.
+// span represents a string of text that can be stylised with ANSI codes.
 type span struct {
 	text, colourCode string
 	codes            []string
