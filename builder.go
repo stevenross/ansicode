@@ -42,7 +42,7 @@ func (b *Builder) Code(code int) *Builder {
 // current span.
 func (b *Builder) Copy() *Builder {
 	if l := len(b.spans); l > 1 {
-		b.spans[l-1].colourCode, b.spans[l-1].codes = b.spans[l-2].colourCode, b.spans[l-2].codes
+		b.currSpan.colourCode, b.currSpan.codes = b.spans[l-2].colourCode, b.spans[l-2].codes
 	}
 	return b
 }
