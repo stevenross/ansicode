@@ -1,4 +1,3 @@
-
 // Package ansicode provides a string builder with a chainable API to
 // apply ANSI code styles to spans of text.
 package ansicode
@@ -7,18 +6,19 @@ import "strconv"
 
 // span represents a string of text that can be stylised with ANSI codes.
 type span struct {
-	text, colourCode string
-	codes            []string
+	text       string
+	colourCode string
+	codes      []string
 }
 
-// addCode adds the ANSI code given to the span if it hasn't already
+// code adds the ANSI code given to the span if it hasn't already
 // been added.
-func (s *span) addCode(code int) {
-	s.addCodeString(strconv.Itoa(code))
+func (s *span) code(code int) {
+	s.codeString(strconv.Itoa(code))
 }
 
-// addCodeString is the same as addCode but accepts a string.
-func (s *span) addCodeString(code string) {
+// codeString is the same as code but accepts a string.
+func (s *span) codeString(code string) {
 	if len(code) == 2 && code[:1] == "3" && code[1:] != "8" && code[1:] != "9" {
 		s.colourCode = code
 		return

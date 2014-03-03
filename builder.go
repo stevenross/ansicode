@@ -34,7 +34,7 @@ func (b *Builder) Span(s string) *Builder {
 
 // Code appends the given ANSI code to the current span.
 func (b *Builder) Code(code int) *Builder {
-	b.currSpan.addCode(code)
+	b.currSpan.code(code)
 	return b
 }
 
